@@ -32,19 +32,25 @@ This repository contains the code implementation for Lipsync.ai, a powerful tool
 
 ---
 
-## Usage
+3 . Pretrained Model 
 
-1. Prepare input data: Ensure video sequences contain clear lip movements.
+```
+cd  model/checkpoint
+```
 
-2. Run LipSync:
+4 . Using the pretrained model 
+```
+model.load("model/checkpoint")
+```
+
+## Inferencing 
+
+<img width="1468" alt="Screenshot 2024-02-02 at 7 24 34 AM" src="https://github.com/Arnav131003/LipSync.ai/assets/75151775/160f8942-7b8d-480c-8391-d4e2fb6524d8">
+
 
     ```
-    python frontend.py 
+    streamlit frontend.py 
     ```
-
-3. Analyze results: Review the generated transcript for accuracy.
-
----
 
 
 ## References
