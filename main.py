@@ -42,13 +42,13 @@ async def lip_read():
         decoder = tf.keras.backend.ctc_decode(yhat, [75], greedy=True)[0][0].numpy()
         converted_prediction =''.join([bytes.decode(x) for x in num_to_char(annotations.numpy()).numpy()])
         decoder_list = decoder.tolist()
-        # decoder_json = json.dumps(decoder_list)
-        # converted_json = json.dumps(converted_prediction)
-        # #return JSONResponse(content={"results": decoder_list, "text": converted_prediction})
-        # print(decoder_json,converted_json)
-        # data = {"sentence": converted_json, " array ": decoder_json}
-        # return templates.TemplateResponse("index.html", {"request":request, "data": data})
-        return JSONResponse(content={"array": decoder_list, "text": converted_prediction}, status_code=200)
+        decoder_json = json.dumps(decoder_list)
+        converted_json = json.dumps(converted_prediction)
+        #return JSONResponse(content={"results": decoder_list, "text": converted_prediction})
+        print(decoder_json,converted_json)
+        data = {"sentence": converted_json, " array ": decoder_json}
+        return templates.TemplateResponse("index.html", {"request":request, "data": data})
+        # return JSONResponse(content={"array": decoder_list, "text": converted_prediction}, status_code=200)
     except Exception as e:
         return JSONResponse(content={"error": str(e)}, status_code=500)
 
